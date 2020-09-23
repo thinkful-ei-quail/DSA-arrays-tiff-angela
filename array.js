@@ -9,7 +9,7 @@ class Array {
         this.ptr = memory.allocate(this.length)     // to distribute the memory at same rate as length
     }
     push (value) {
-        if (this.length >= this._capacity) {    // if length is >+ capactiy
+        if (this.length >= this._capacity) {    // if length is >+ capacity
             this._resize((this.length + 1) * Array.SIZE_RATIO)  // add length to arr by * by size ratio (usually 3)
         }
         memory.set(this.ptr + this.length, value)   // add value to the ptr/length spot in arr
@@ -31,7 +31,7 @@ class Array {
         return memory.get(this.ptr + index);
     }
     }
-    pop () {
+    function pop () {
         if (this.length == 0) {
             throw new Error('Index error');
         }
@@ -39,7 +39,7 @@ class Array {
         this.length--;
         return value;
     }
-    insert(index, value) {
+    function insert(index, value) {
         if (index < 0 || index >= this.length) {
             throw new Error('Index error');
         }
@@ -52,14 +52,15 @@ class Array {
         memory.set(this.ptr + index, value);
         this.length++;
     }
-    remove (index) {
+   function  remove (index) {
         if (index < 0 || index >= this.length) {
             throw new Error('Index error');
         }
         memory.copy(this.ptr + index, this.ptr + index + 1, this.length - index - 1);
         this.length--;
     }
-}
+
 Array.SIZE_RATIO = 3
 
+console.log(Array)
 module.exports = Array;
