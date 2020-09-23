@@ -30,8 +30,7 @@ class Array {
         }
         return memory.get(this.ptr + index);
     }
-    }
-    function pop () {
+    pop () {
         if (this.length == 0) {
             throw new Error('Index error');
         }
@@ -39,7 +38,7 @@ class Array {
         this.length--;
         return value;
     }
-    function insert(index, value) {
+    insert(index, value) {
         if (index < 0 || index >= this.length) {
             throw new Error('Index error');
         }
@@ -52,13 +51,14 @@ class Array {
         memory.set(this.ptr + index, value);
         this.length++;
     }
-   function  remove (index) {
+    remove (index) {
         if (index < 0 || index >= this.length) {
             throw new Error('Index error');
         }
         memory.copy(this.ptr + index, this.ptr + index + 1, this.length - index - 1);
         this.length--;
     }
+}
 
 Array.SIZE_RATIO = 3
 
