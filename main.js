@@ -1,11 +1,10 @@
-const memory = require('./memory');
-
+const Array = require('./array')
 // PUSH () METHOD
 //goal of the function is to add 
 //item to the array using a provided 
 //function
 
-function mainPush() {
+function main() {
     Array.SIZE_RATIO = 3
 
     //creating a new instance of the array for the 
@@ -25,22 +24,4 @@ function mainPush() {
     //proposition: the current length of the array is three
     console.log(arr);
 }
-console.log(mainPush());
-
-// POP() METHOD
-// removes data from the end of the array
-function mainPop() {
-    Array.SIZE_RATIO = 3
-    let arr = new Array()
-    arr.push(3);
-    arr.push(5);
-    arr.push(15);
-    arr.push(19);
-    arr.push(45);
-    arr.push(10);
-    arr.pop();
-    arr.pop();
-    arr.pop();
-    console.log(arr)
-}
-console.log(mainPop())
+console.log(main());
