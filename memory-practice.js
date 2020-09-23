@@ -19,7 +19,9 @@ class Memory {
             throw new Error ('out of memory')   // throws error
         } memory.copy(oldPtr, this.ptr, this.length)    // copies everything in arr
         memory.free(oldPtr)     // adds ptr to free space
-        this._capactiy = size   // new size of arr
+        this._capacity = size   // new size of arr
     }
 }
 Array.SIZE_RATIO = 3
+
+module.exports = Memory;
