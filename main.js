@@ -23,6 +23,19 @@ function main() {
     arr.push(10);
     //proposition: the current length of the array is three
     console.log(arr);
+    newZ = arr.get(0)
+    console.log('arr 0', newZ)
+    newA = arr.get(1)  // 3
+    console.log(newA)
+    newB = arr.get(2)  // 5
+    console.log(newB)
+    newC = arr.get(3)  // 15
+    console.log(newC)
+    newD = arr.get(4)  //19
+    console.log(newD)
+    newE = arr.get(5)  // 45
+    console.log(newE)
+    
 }
 console.log(main());
 

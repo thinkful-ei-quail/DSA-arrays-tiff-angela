@@ -62,6 +62,4 @@ class Array {
 
 Array.SIZE_RATIO = 3
 
-console.log(new Array())
-
 module.exports = Array;
