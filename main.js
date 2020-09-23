@@ -26,6 +26,13 @@ function main() {
 
     let A = arr.get(0)
     console.log(A)
+
+    arr.pop()
+    arr.pop()
+    arr.pop()
+    arr.push('tauhida')
+    name = arr.get(0)
+    console.log(name)
 }
 console.log(main());
 

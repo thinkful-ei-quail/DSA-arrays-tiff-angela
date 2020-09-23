@@ -3,34 +3,31 @@ const Memory = require('./memory')
 const memory = new Memory()
 
 class Array {
-    constructor () {
+    constructor() {
         this.length = 0;    // length starts at 0
-        this._capacity = 0;     // max size of arr
         this.ptr = memory.allocate(this.length)     // to distribute the memory at same rate as length
     }
-    push (value) {
-        if (this.length >= this._capacity) {    // if length is >+ capacity
-            this._resize((this.length + 1) * Array.SIZE_RATIO)  // add length to arr by * by size ratio (usually 3)
-        }
-        memory.set(this.ptr + this.length, value)   // add value to the ptr/length spot in arr
-        this.length++   // adds 1 to length
+    push(value) {
+        this._resize(this.length + 1)
+        memory.set(this.ptr + this.length, value)
+        this.length++
     }
-    _resize (size) {
+    _resize(size) {
         const oldPtr = this.ptr     // defines current ptr
         this.ptr = memory.allocate(size)    // defines method to resize memory
         if (this.ptr === null) {    // conditional checking memory for space
-            throw new Error ('out of memory')   // throws error
-        } memory.copy(oldPtr, this.ptr, this.length)    // copies everything in arr
+            throw new Error('out of memory')   // throws error
+        }
+        memory.copy(this.ptr, oldPtr, this.length)    // copies everything in arr
         memory.free(oldPtr)     // adds ptr to free space
-        this._capacity = size   // new size of arr
     }
-    get (index) {
+    get(index) {
         if (index < 0 || index >= this.length) {
             throw new Error('Index error');
         }
         return memory.get(this.ptr + index);
     }
-    pop () {
+    pop() {
         if (this.length == 0) {
             throw new Error('Index error');
         }
@@ -51,7 +48,7 @@ class Array {
         memory.set(this.ptr + index, value);
         this.length++;
     }
-    remove (index) {
+    remove(index) {
         if (index < 0 || index >= this.length) {
             throw new Error('Index error');
         }
@@ -59,6 +56,7 @@ class Array {
         this.length--;
     }
 }
+
 
 Array.SIZE_RATIO = 3
 
