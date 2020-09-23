@@ -1,5 +1,5 @@
 /* get(ptr) - returns the value stored at a certain memory address 
-    (ptr is shorthand for pointer: variables containing memory addresses are known as pointers)
+    (ptr is shorthand for pointer: variables containing memory addresses are known as pointers
 
 set(ptr, value) - sets the value stored at a certain memory address
 
