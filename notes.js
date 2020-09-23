@@ -1,4 +1,4 @@
-import memory from './memory.js'
+const memory = require('./memory.js')
 
 // writing an array :
 // we need to push the new element to the end
@@ -38,7 +38,7 @@ get(index) {
     return memory.get(this.ptr + index);
 }
 
-//POPPING VALUES
+//POPPING VALUES O(1)
 ...
 pop() {
     if (this.length == 0) {
@@ -50,7 +50,7 @@ pop() {
 }
 ...
 
-//INSERTING VALUES
+//INSERTING VALUES O(n) if inserting at beg or mid and O(1) if inserting at end of arr
 ...
 insert(index, value) {
     if (index < 0 || index >= this.length) {
@@ -67,7 +67,7 @@ insert(index, value) {
 }
 ...
 
-//REMOVING VALUES
+//REMOVING VALUES O(n) O(1)
 ...
     remove(index) {
         if (index < 0 || index >= this.length) {
