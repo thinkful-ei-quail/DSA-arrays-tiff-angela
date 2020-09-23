@@ -18,7 +18,7 @@ class Array {
     _resize (size) {
         const oldPtr = this.ptr     // defines current ptr
         this.ptr = memory.allocate(size)    // defines method to resize memory
-        if (this.ptr === null) {    // conditional checkign memory for space
+        if (this.ptr === null) {    // conditional checking memory for space
             throw new Error ('out of memory')   // throws error
         } memory.copy(oldPtr, this.ptr, this.length)    // copies everything in arr
         memory.free(oldPtr)     // adds ptr to free space
@@ -62,5 +62,6 @@ class Array {
 
 Array.SIZE_RATIO = 3
 
-console.log(Array)
+console.log(new Array())
+
 module.exports = Array;
